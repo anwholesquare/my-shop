@@ -1,2 +1,0 @@
-(this["webpackJsonpmy-shop"]=this["webpackJsonpmy-shop"]||[]).push([[5],{50:function(n,t,e){"use strict";e.r(t);var s=e(0),i=e.n(s);t.default=function(){return i.a.createElement("div",null,"Admin")}}}]);
-//# sourceMappingURL=5.ef75d302.chunk.js.map
