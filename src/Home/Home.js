@@ -5,27 +5,34 @@ import NavBar from "../NavBar/NavBar";
 import ProductList from "../ProductList/ProductList";
 import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
+import {useSelector, useDispatch} from "react-redux";
 
 const Home = () => {
  
-  
+
     
-    const [productData, setProductData] = useState([]);
+    const {cartItem, productData} = useSelector (state => state);
+    const dispatch = useDispatch();
+
+    const setCartItem = (items) => {
+      dispatch({type : "SET_CART_ITEMS", payload : items });
+    }
+
     const [data, setData] = useState([]);
     const [keyword, setKeyword] = useState("");
     const [isCarted, setIsCarted] = useState(false);
-    const [cartItem, setCartItem] = useState([]);
-      
+    //const [cartItem, setCartItem] = useState([]);
+    
     useEffect(() => {
         async function fetchData() {
         var cdata = await fetch("http://oleek.co/data.php").then(res => {
           return res.json();
         });
-        setProductData(cdata);
+        dispatch({type : "SET_DATA", payload : cdata });
         setData(cdata);
-        console.log(cdata);
         }
         fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
      }, []);
     
    

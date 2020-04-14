@@ -371,14 +371,17 @@ h1{
   padding: 10px;
   font-size: 16px;
   border: 1px solid black;
-  float: left;
+  min-width: 250px;
   width: 80%;
+  max-width: 400px;
+  border-radius: 35px 0px 0px 35px;
+  padding-left: 15px;
 }
 
 #searcher button {
   float: left;
   padding: 10px;
-  background : black;
+  background-color: rgb(25, 23, 23);
   color: white;
   font-size: 17px;
   border: none;
@@ -727,4 +730,27 @@ footer{
 }
 
 
+
+
 /* end footer css */
+
+/* media css */
+
+@media (min-width: 1281px) {
+/*higher Resolution Desktops*/
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+/*Laptops, Desktops*/
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+/*Laptops, Desktops*/
+}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+/*Tablets, Ipads (landscape)*/
+}
+@media (min-width: 481px) and (max-width: 767px) {
+/*Low Resolution Tablets, Mobiles (Landscape)*/
+}
+@media (min-width: 320px) and (max-width: 480px) {
+/*Most of the Smartphones Mobiles (Portrait)*/
+}

@@ -1,21 +1,24 @@
-import React from 'react';
-import Home from "./Home/Home";
-import Order from "./Order/Order";
-import Admin from "./Admin/Admin";
+import React, {lazy, Suspense} from 'react';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 import './App.css';
+import {StateProvider} from "./Store/Store";
 
 
+const Home = lazy(()=> import("./Home/Home"));
+const Order = lazy(()=> import("./Order/Order"));
+const Admin = lazy(() => import("./Admin/Admin"));
 const App = () => {
 
   return (
     <div className="App">
-      
+      <StateProvider>
       <Router>
+        <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route path="/admin">
             <Admin />
@@ -30,8 +33,9 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
-
+        </Suspense>
       </Router>
+      </StateProvider>
     </div>
   );
 };
