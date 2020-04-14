@@ -1,6 +1,7 @@
 import React from 'react';
 import plus from './plus.svg';
 import minus from './minus.svg';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const CartItem = ({cartItem, removeItem,quantityMinus, quantityPlus}) => {
     return (<div className="cart-item">
@@ -53,8 +54,8 @@ const Cart = ({cartItem, removeItem, quantityMinus, quantityPlus, clearCart, set
             )}
         </span>
         
-        {isCarted && ( <a href="#productser"> <span className = "acolor bolder"> Go Back </span></a> )}
-        {!isCarted && ( <a href="#carter"> <span className = "acolor bolder"> Tap To Purchase </span> </a> )}
+        {isCarted && ( <Link to="#productser" scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}> <span className = "acolor bolder"> Go Back </span></Link> )}
+        {!isCarted && ( <Link to="#carter" scroll={el => el.scrollIntoView({ behavior: 'instant', block: 'start' })}> <span className = "acolor bolder"> Tap To Purchase </span> </Link> )}
        
         <span className = "cartNumber">  {cartItem.length} </span> </div>
         )}
@@ -74,7 +75,7 @@ const Cart = ({cartItem, removeItem, quantityMinus, quantityPlus, clearCart, set
                 const encryptorQuan = btoa(quantities);
                 console.log(atob(encryptorID));
                 console.log(atob(encryptorQuan));
-                const res = window.confirm("OrderLink : localhost:3000/order/" + encryptorID + "/" + encryptorQuan);
+                const res = window.confirm("OrderLink :" + window.location.href + "order/" + encryptorID + "/" + encryptorQuan);
                 if (res === true) {
                     //setCartItem([]);
                 }

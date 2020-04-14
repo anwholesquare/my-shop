@@ -1,6 +1,6 @@
 {
   "name": "my-shop",
-  "homepage": "http://anwholesquare.github.io/my-shop",
+  "homepage": "http://shop.anwholesquare.xyz/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +11,7 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
+    "react-router-hash-link": "^1.2.2",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0"

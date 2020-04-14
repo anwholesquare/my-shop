@@ -1,7 +1,7 @@
 import React, {lazy, Suspense} from 'react';
 
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -17,7 +17,7 @@ const App = () => {
   return (
     <div className="App">
       <StateProvider>
-      <Router>
+      <Router basename='/'>
         <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route path="/admin">
@@ -26,10 +26,7 @@ const App = () => {
           <Route path="/order/:ids/:quantity">
             <Order/>
           </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="*">
+          <Route exact path="/">
             <Home />
           </Route>
         </Switch>
