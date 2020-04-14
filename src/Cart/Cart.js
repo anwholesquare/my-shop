@@ -70,7 +70,11 @@ const Cart = ({cartItem, removeItem, quantityMinus, quantityPlus, clearCart, set
         <div id = "last-cart"> 
         <span onClick={(e) =>{clearCart(); setIsCarted(false);}} id="cancel-cart"> Clear Cart </span>
         <span onClick={() => { 
-                const res = window.confirm("OrderLink : localhost:3000/order/" + ids + "/" + quantities);
+                const encryptorID = btoa(ids);
+                const encryptorQuan = btoa(quantities);
+                console.log(atob(encryptorID));
+                console.log(atob(encryptorQuan));
+                const res = window.confirm("OrderLink : localhost:3000/order/" + encryptorID + "/" + encryptorQuan);
                 if (res === true) {
                     //setCartItem([]);
                 }

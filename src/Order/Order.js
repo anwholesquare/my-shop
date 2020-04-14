@@ -36,14 +36,22 @@ const Order = () => {
 
 
     let {ids, quantity} = useParams();
+    ids = atob(ids);
+    quantity = atob(quantity);
+
     const itemIDArray = ids.split(',');
     const itemQuantityArray = quantity.split(',');
+    let finalQuanArray = [];
+    let i = 0;
     // eslint-disable-next-line
     let cartItem = data.filter(item => {
         var returner = undefined;
-        itemIDArray.forEach((id) =>{
+       
+        itemIDArray.forEach((id, index) =>{
             if(item.id === parseInt(id)){
                 returner = 1;
+                finalQuanArray[i] = itemQuantityArray[index];
+                i = i +1;
             }
         });
         if(returner !== undefined){
@@ -51,7 +59,7 @@ const Order = () => {
         }
 
     });
-    cartItem = cartItem.map ((cItem, index) => { return {...cItem, quantity : parseInt(itemQuantityArray[index]) };});
+    cartItem = cartItem.map ((cItem, index) => { return {...cItem, quantity : parseInt(finalQuanArray[index]) };});
     const total = cartItem.reduce(
 		(sum, cur) => sum + cur.price * cur.quantity,
 		0
