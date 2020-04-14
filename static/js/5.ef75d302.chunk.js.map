@@ -1,0 +1,1 @@
+{"version":3,"sources":["Admin/Admin.js"],"names":["Admin"],"mappings":"yGAAA,2BAMeA,UAJD,WACV,OAAO","file":"static/js/5.ef75d302.chunk.js","sourcesContent":["import React from 'react';\r\n\r\nconst Admin = () => {\r\n    return <div>Admin</div>;\r\n}\r\n\r\nexport default Admin;"],"sourceRoot":""}
