@@ -25,7 +25,7 @@ const Home = () => {
     
     useEffect(() => {
         async function fetchData() {
-        var cdata = await fetch("http://oleek.co/data.php").then(res => {
+        var cdata = await fetch("https://my-shop-backend.herokuapp.com/apis/allproducts").then(res => {
           return res.json();
         });
         dispatch({type : "SET_DATA", payload : cdata });

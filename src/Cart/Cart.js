@@ -66,8 +66,14 @@ const Cart = ({cartItem, removeItem, quantityMinus, quantityPlus, clearCart, set
         </div>
         {cartItem.map( (cItem) => <CartItem cartItem= {cItem} removeItem={removeItem} quantityMinus={quantityMinus} quantityPlus={quantityPlus}   key={cItem.id}/>)}
         <div id = "total-cart"> 
-        <span>TOTAL</span> 
+        <span>SUB TOTAL</span> 
         <span style={{paddingRight: 35}}> ${total} </span> </div>
+        <div id = "total-cart"> 
+        <span>SHIPPING CHARGE</span> 
+        <span style={{paddingRight: 35}}> $5 </span> </div>
+        <div id = "total-cart"> 
+        <span>TOTAL</span> 
+        <span style={{paddingRight: 35}}> ${total + 5}   </span> </div>
         <div id = "last-cart"> 
         <span onClick={(e) =>{clearCart(); setIsCarted(false);}} id="cancel-cart"> Clear Cart </span>
         <span onClick={() => { 
