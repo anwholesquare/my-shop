@@ -65,7 +65,21 @@
 
 /* start nav css */
 
+.badge{
+    width: 80px;
+    height: 85px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+}
 
+.logo-badge{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 4px;
+    left: 20px;
+}
 
 .nav {
   display: flex;

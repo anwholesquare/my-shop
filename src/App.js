@@ -29,6 +29,7 @@ const App = () => {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route component={Home} />
         </Switch>
         </Suspense>
       </Router>

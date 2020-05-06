@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     useParams
 } from "react-router-dom";
-
+import myConfig from "../myConfig";
 
 const CartItem = ({cartItem}) => {
     return (<div className="cart-item">
@@ -27,28 +27,36 @@ const CartItem = ({cartItem}) => {
 
 const Order = () => {
     const [data, setData] = useState([]);
-    const fetchData = () => fetch("http://oleek.co/data.php").then(res => res.json());
-    
-    (async()=>{
-      const results = await fetchData();
-      setData(results);
-    })();
-
+   
+    useEffect(() => {
+      async function fetchData() {
+      var cdata = await fetch(myConfig[0].url).then(res => {
+        return res.json();
+      });
+      setData(cdata);
+     
+      }
+      fetchData();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, []);
 
     let {ids, quantity} = useParams();
     ids = atob(ids);
+
     quantity = atob(quantity);
 
     const itemIDArray = ids.split(',');
     const itemQuantityArray = quantity.split(',');
     let finalQuanArray = [];
     let i = 0;
+    
     // eslint-disable-next-line
     let cartItem = data.filter(item => {
         var returner = undefined;
        
         itemIDArray.forEach((id, index) =>{
-            if(item.id === parseInt(id)){
+          
+            if(parseInt(item.id) === parseInt(id)){
                 returner = 1;
                 finalQuanArray[i] = itemQuantityArray[index];
                 i = i +1;

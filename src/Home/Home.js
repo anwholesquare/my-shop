@@ -6,7 +6,7 @@ import ProductList from "../ProductList/ProductList";
 import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import {useSelector, useDispatch} from "react-redux";
-
+import myConfig from "../myConfig";
 const Home = () => {
  
 
@@ -25,7 +25,7 @@ const Home = () => {
     
     useEffect(() => {
         async function fetchData() {
-        var cdata = await fetch("https://my-shop-backend.herokuapp.com/apis/allproducts").then(res => {
+        var cdata = await fetch(myConfig[0].url).then(res => {
           return res.json();
         });
         dispatch({type : "SET_DATA", payload : cdata });
